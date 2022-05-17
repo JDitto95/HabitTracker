@@ -3,9 +3,11 @@
 1. run pipenv install django in the terminal.
 *set up virtual environ
 *django-debug-toolbar_look up how to set it up
+>DONE<
 *django-extentions//shell_plus
+>DONE<
 *django-registration-redux
-
+>DONE<
 ## Postgres and Heroku
 
 

@@ -14,7 +14,7 @@ import imp
 from pathlib import Path
 import environ
 import os
-
+import django_on_heroku
 
 env = environ.Env(
     # set casting, default value
@@ -41,6 +41,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +131,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "Habits.User"
+django_on_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']

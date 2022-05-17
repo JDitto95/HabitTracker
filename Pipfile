@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-environ = "*"
+django-debug-toolbar = "*"
+django-extensions = "*"
+django-registration-redux = "*"
 
 [dev-packages]
 

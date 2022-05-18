@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from Habits import views as habits_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
+    path('',habits_views.list_habits, name='list_habits'),
 ]

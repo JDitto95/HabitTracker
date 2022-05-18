@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db.models import UniqueConstraint
 # Create your models here.
 class User(AbstractUser):
     def __repr__(self):
@@ -20,3 +21,16 @@ class Habit(models.Model):
     
     def __str__(self):
         return self.name
+    
+    
+class Record(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    habit = models.ForeignKey('Habit', on_delete=models.CASCADE, related_name='Record')
+    amount = models.IntegerField()
+    class Meta:
+        constraints =[
+            models.UniqueConstraint(fields=['habit', 'created_at'], name='Habit')
+            ]
+
+    def __str__(self):
+        return self.amount

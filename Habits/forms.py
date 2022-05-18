@@ -1,8 +1,6 @@
 from django import forms
 
-
-
-from .models import Habit, User
+from .models import Habit, User, Record
 
 class HabitForm(forms.ModelForm):
     class Meta:
@@ -12,5 +10,12 @@ class HabitForm(forms.ModelForm):
             'goal',
             'task',
             'units',
-            
         ]
+
+class RecordForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = [
+            'amount',
+        ]
+    

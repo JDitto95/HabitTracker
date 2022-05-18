@@ -27,3 +27,11 @@ def edit_habit(request, pk):
         if form.is_valid():
             form.save()
             return redirect(to='list_habits')
+
+
+def delete_habit(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == 'POST':
+        habit.delete()
+        return redirect(to='list_habits')
+    return render(request, "habits/delete_habit.html", {"habit": habit})       

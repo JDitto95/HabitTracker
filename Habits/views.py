@@ -15,7 +15,9 @@ def add_habits(request):
     else:
         form = HabitForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            Habit = form.save(commit=False)
+            Habit.user = request.user
+            Habit.save()
             return redirect(to='list_habits')
             
     return render( request, "habits/add_habit.html", {"form": form})
@@ -53,3 +55,13 @@ def edit_habit(request, pk):
         "form": form,
         "habit": habit
     })     
+    
+def habit_detail(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    # notes = Note.objects.filter(contact_id=contact.pk)
+    
+    return render(request, "habits/habit_detail.html", {"habit": habit })  
+
+# def log_out(request):
+#     logout(request)
+#     return redirect('log_out')

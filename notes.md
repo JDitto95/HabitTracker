@@ -9,12 +9,12 @@
 *django-registration-redux
 >DONE<
 ## Postgres and Heroku
-
+>DONE<
 
 
 ## Registration and Login
     * install registration-redux
-
+>DONE<
 ### Users should be able to create new habits and track those habits with trackers,
 >what methods do you know that can accomplish this in django?
 

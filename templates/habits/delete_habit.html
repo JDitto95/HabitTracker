@@ -8,8 +8,9 @@
     {% csrf_token %}
     <p>Are you sure you want to delete {{ habit.task }}</p>
     <div>
-      <button type="submit">Delete Habit</button><br />
-      <a href="{% url 'list_habits' %}">Cancel</a>
+    <button type="submit">Delete</button><br />
+    <button><a href="{% url 'list_habits' %}">Cancel</a></button>
+    <!-- <button><a href="{% url 'list_habits' %}">HOME</a></button> -->
     </div>
   </form>
 </div>

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1></h1>
+
+<h1>{{habit.description}}</h1>
+<h1>{{habit.created_at}}</h1>
+<button><a href="{% url 'list_habits' %}">HOME</a></button>
+{% endblock %}

@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from Habits import views as habits_views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
+    # path("accounts/logout/",views.log_out, name ='log_out'),
     path('',habits_views.list_habits, name='list_habits'),
     path('habits/<int:pk>/edit/', habits_views.edit_habit, name='edit_habit'),
     path('habits/add/', habits_views.add_habits, name='add_habits'),
     path('habits/<int:pk>/delete/', habits_views.delete_habit, name='delete_habit'),
     path('habits/<int:pk>/edit/', habits_views.edit_habit, name='edit_habit'),
+    path('habits/<int:pk>/detail/', habits_views.habit_detail, name='habit_detail',)
 ]

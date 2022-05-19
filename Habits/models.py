@@ -11,9 +11,9 @@ class User(AbstractUser):
     
 
 class Habit(models.Model):
-    name = models.CharField(max_length=100)
-    goal = models.IntegerField(blank=False)
+    description = models.CharField(max_length=100)
     task = models.CharField(max_length=20, blank=True)
+    goal = models.IntegerField(blank=False)
     units = models.CharField(max_length=20, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     

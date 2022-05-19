@@ -7,7 +7,7 @@
 {% for habit in habits %}
 <h2>{{habit.task}}</h2>
 <h2>Goal:{{habit.goal}}</h2>
-<h2>Created-at: {{habit.created_at}}</h2>
+<!-- <h2>Created-at: {{habit.created_at}}</h2> -->
 
 <button><a href="{% url 'delete_habit' habit.pk %}">delete</a></button>
 <button><a href="{% url 'edit_habit' habit.pk %}">Edit</a></button>

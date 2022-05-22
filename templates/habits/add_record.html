@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <form action="{% url 'add_record' pk=habit.pk %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+        <button type="submit">Add record</button>
+        <button><a href="{% url 'list_habits' %}">Cancel</a></button>
+        </div>
+    </form>
+    
+    <div>
+        {% for habit in habit.records.all %}
+        <tr class="{{ record.date }}">date</tr>"
+        <tr class="{{ habit.record }}">amount</tr>"
+        {% endfor %}
+        
+    </div>
+</div>
+{% endblock %}

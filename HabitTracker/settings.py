@@ -133,5 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "Habits.User"
 django_on_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
-
+SIMPLE_BACKEND_REDIRECT_URL = '/'
+REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/'

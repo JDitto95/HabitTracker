@@ -1,8 +1,8 @@
 
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Habit
-from .forms import HabitForm
+from .models import Habit, Record
+from .forms import HabitForm, RecordForm
 # Create your views here.
 @login_required
 def list_habits(request):
@@ -50,10 +50,32 @@ def delete_habit(request, pk):
     
 def habit_detail(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
-    # notes = Note.objects.filter(contact_id=contact.pk)
-    
-    return render(request, "habits/habit_detail.html", {"habit": habit })  
+    records = Record.objects.filter(habit=habit.pk)
+    return render(request, "habits/habit_detail.html", {"habit": habit, "records": records })  
 
+def add_record(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == 'GET':
+        form = RecordForm()
+    else:
+        form = RecordForm(data=request.POST)
+        if form.is_valid():
+            new_record = form.save(commit=False)
+            new_record.habit = habit
+            new_record.save()
+            return redirect('habit_detail', pk=pk)
+
+    return render(request, "habits/add_record.html", {"form": form, "habit": habit})  
+
+
+
+def record_detail(request, pk):
+    record = get_object_or_404(Record, pk=pk)
+    records = Record.objects.filter(record=record.pk)
+    return render(request, "habits/record_detail.html", { "records": records })
+            
 # def log_out(request):
 #     logout(request)
 #     return redirect('log_out')
+
+

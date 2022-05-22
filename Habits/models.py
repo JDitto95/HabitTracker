@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models import UniqueConstraint
+from datetime import datetime
 # Create your models here.
 class User(AbstractUser):
     def __repr__(self):
@@ -11,7 +12,6 @@ class User(AbstractUser):
     
 
 class Habit(models.Model):
-    description = models.CharField(max_length=100)
     task = models.CharField(max_length=20, blank=True)
     goal = models.IntegerField(blank=False)
     units = models.CharField(max_length=20, blank=True)
@@ -20,17 +20,17 @@ class Habit(models.Model):
     
     
     def __str__(self):
-        return self.name
+        return self.task
     
     
 class Record(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    habit = models.ForeignKey('Habit', on_delete=models.CASCADE, related_name='Record')
+    habit = models.ForeignKey('Habit', on_delete=models.CASCADE, related_name='record')
     amount = models.IntegerField()
+    date = models.DateField(null=True, blank=True, default=datetime.now)
     class Meta:
         constraints =[
-            models.UniqueConstraint(fields=['habit', 'created_at'], name='Habit')
+            models.UniqueConstraint(fields=['habit', 'date'], name='once_per_day')
             ]
 
-    def __str__(self):
-        return self.amount
+    # def __str__(self):
+    #     return self.amount

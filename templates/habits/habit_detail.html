@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<button><a href="{% url 'list_habits' %}">HOME</a></button>
 </div>
 
-    
-    <button type="submit">Update</button>
-    
+
+
 </div>
+<button><a href="{% url 'list_habits' %}">HOME</a></button>
 {% for record in records %}
 <div style="margin: 50px">
     <p>{{ record.date }}</p>
     <p>{{ record.amount }}</p>
 </div>
-<a href="{% url 'edit_record' pk=record.pk %}">Edit Record</a>
+<button><a href="{% url 'edit_record' pk=record.pk %}">Edit Record</a></button>
+<button type="submit">Update</button>
 {% endfor %}
 {% endblock %}

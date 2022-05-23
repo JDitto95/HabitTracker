@@ -71,21 +71,20 @@ def add_record(request, pk):
 
 def record_detail(request, pk):
     record = get_object_or_404(Record, pk=pk)
-    records = Record.objects.filter(record=record.pk)
-    return render(request, "habits/record_detail.html", { "records": records })
+    return render(request, "habits/record_detail.html", { "record": record })
 
 
 def edit_record(request, pk):
     record = get_object_or_404(Record, pk=pk)
-    if request.method == 'GET':
-        form = RecordForm(instance=record)
+    if request.method == 'POST':
+        form = RecordForm(data=request.POST, instance=record)
         if form.is_valid():
             record=form.save(commit=False)
             form.save()
             return redirect(to='record_detail', pk=pk)
 
     else:
-        form = RecordForm(data=request.POST, instance=record)
+        form = RecordForm( instance=record)
         
     return render( request, "habits/edit_record.html", {"form": form, "record": record})           
 # def log_out(request):

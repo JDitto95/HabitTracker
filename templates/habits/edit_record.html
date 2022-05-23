@@ -2,15 +2,15 @@
 
 {% block content %}
 
-<h1>Edit habit</h1>
+<h1>Edit Record</h1>
 
 <div>
-<form action="{% url 'edit_habit' pk=habit.pk %}" method="POST">
+<form action="{% url 'edit_record' pk=record.pk %}" method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <p>Are you sure you want to Edit {{ habit.task }}?</p>
+
+    <p>Are you sure you want to Edit {{ record.amount }}?</p>
 </div>
-        <h3>{{ habit.name }}</h3>
         <button type="submit">Update</button>
     
     <a href="{% url 'list_habits' %}">Cancel</a>

@@ -2,7 +2,12 @@
 
 {% block content %}
     <div>
-        {{record.task}}
-        {{record.amount}}
+        <form action="{% url 'edit_record' pk=record.pk %}" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <p>Update this result {{ record.amount }}</p>
+            <button type="submit">Update</button>
+
+        <a href="{% url 'list_habits' %}">HOME</a>
     </div>
 {% endblock %}

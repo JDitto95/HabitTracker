@@ -3,10 +3,16 @@
 {% block content %}
 <button><a href="{% url 'list_habits' %}">HOME</a></button>
 </div>
+
+    
+    <button type="submit">Update</button>
+    
+</div>
 {% for record in records %}
 <div style="margin: 50px">
     <p>{{ record.date }}</p>
-    <p>amount - {{ record.amount }}</p>
+    <p>{{ record.amount }}</p>
 </div>
+<a href="{% url 'edit_record' pk=record.pk %}">Edit Record</a>
 {% endfor %}
 {% endblock %}

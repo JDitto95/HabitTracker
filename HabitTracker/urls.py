@@ -27,5 +27,9 @@ urlpatterns = [
     path('habits/add/', habits_views.add_habits, name='add_habits'),
     path('habits/<int:pk>/delete/', habits_views.delete_habit, name='delete_habit'),
     path('habits/<int:pk>/edit/', habits_views.edit_habit, name='edit_habit'),
-    path('habits/<int:pk>/detail/', habits_views.habit_detail, name='habit_detail',)
+    path('habits/<int:pk>/detail/', habits_views.habit_detail, name='habit_detail'),
+    path('habit/<int:pk>/add_record/', habits_views.add_record, name='add_record'),
+    path('habit/<int:pk>/record_detail/', habits_views.record_detail, name='record_detail'),
+    path('habit/record/<int:pk>/edit_record/', habits_views.edit_record, name='edit_record')
+    path('api/', include("api.urls")),
 ]

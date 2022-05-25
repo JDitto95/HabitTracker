@@ -12,6 +12,7 @@ django-extensions = "*"
 django-registration-redux = "*"
 django-on-heroku = "*"
 gunicorn = "*"
+djangorestframework = "==3.12.0"
 
 [dev-packages]
 

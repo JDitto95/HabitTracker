@@ -5,6 +5,7 @@
 <button><a href="{% url 'add_habits' %}">Add New</a></button>
 
 {% for habit in habits %}
+
 <h2>{{habit.task}}</h2>
 <h2>Goal:{{habit.goal}}</h2>
 <!-- <h2>Created-at: {{habit.created_at}}</h2> -->
@@ -12,5 +13,6 @@
 <button><a href="{% url 'delete_habit' habit.pk %}">delete</a></button>
 <button><a href="{% url 'edit_habit' habit.pk %}">Edit</a></button>
 <button><a href="{% url 'habit_detail' habit.pk %}">Details</a></button>
+<button><a href="{% url 'add_record' habit.pk %}">Add Record</a></button>
 {% endfor %}
 {% endblock %}

@@ -1,5 +1,12 @@
 ## by friday afternoon:
->should be able to list, create, view, update and delete habits via API.
+>should be able to 
+list,
+>DONE<
+ create,
+ url,view 
+ view, 
+ update 
+ and delete habits via API.
 -using insomnia to do these requests.
 ## by monday evening
 

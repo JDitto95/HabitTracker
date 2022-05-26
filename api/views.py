@@ -15,7 +15,8 @@ class HabitListView(APIView):
         return Response(serializer.data)
     
 class HabitCreateView(CreateAPIView):
-    pass
+    serializer_class = HabitSerializer
+    queryset = Habit.objects.all()
 
 
 

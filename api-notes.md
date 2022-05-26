@@ -3,7 +3,7 @@
 list,
 >DONE<
  create,
- url,view 
+ url, 
  view, 
  update 
  and delete habits via API.

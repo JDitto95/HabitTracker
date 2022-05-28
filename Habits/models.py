@@ -14,7 +14,7 @@ class User(AbstractUser):
 class Habit(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='habit')
     task = models.CharField(max_length=20, blank=True)
-    goal = models.IntegerField(blank=False)
+    goal = models.IntegerField()
     units = models.CharField(max_length=20, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     

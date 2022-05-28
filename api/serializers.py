@@ -5,7 +5,10 @@ class HabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
         fields = (
-            'pk',
+            'id',
             'task',
+            'goal',
+            'units',
+            'user_id',
         )
         

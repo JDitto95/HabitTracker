@@ -4,12 +4,13 @@ list,
 >DONE<
  create,
  url, 
- view, 
+ view,
+ >DONE< 
  update 
  and delete habits via API.
 -using insomnia to do these requests.
 ## by monday evening
-
+>are these different then the ones above?<
 Write up a list of endpoints you think you will need before you start doing this!
 *list habits
 *create a new habit

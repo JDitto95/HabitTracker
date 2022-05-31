@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+import Habits
 from api.serializers import HabitSerializer
 from Habits.models import Habit
 from rest_framework.generics import CreateAPIView
 from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.decorators import api_view
-from rest_framework import reverse
+from rest_framework import reverse, generics
 # Create your views here.
 
 # @api_view([GET])
@@ -28,11 +30,22 @@ class HabitCreateView(CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class HabitDetailView(RetrieveAPIView):
+
+
+# class HabitDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    # queryset = Habit.objects.filter()
+    # serializer_class = HabitSerializer
+    
+    # def delete(self,request, *args, **kwargs):
+    #     return self.destroy(request, *args, **kwargs)
+    
+    
+    
+class HabitDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer 
     def perform_destroy(self, instance):
-        if instance.habit.user == self.rquest.user:
+        if instance.user == self.request.user:
             instance.delete()
     def porform_create(self, serializer):
         serializer.save(user=self.request.user)

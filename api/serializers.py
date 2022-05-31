@@ -7,5 +7,7 @@ class HabitSerializer(serializers.ModelSerializer):
         fields = (
             'pk',
             'task',
+            'goal',
+            'units',
         )
         

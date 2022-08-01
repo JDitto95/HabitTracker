@@ -30,17 +30,6 @@ class HabitCreateView(CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-
-
-# class HabitDeleteView(generics.RetrieveUpdateDestroyAPIView):
-    # queryset = Habit.objects.filter()
-    # serializer_class = HabitSerializer
-    
-    # def delete(self,request, *args, **kwargs):
-    #     return self.destroy(request, *args, **kwargs)
-    
-    
-    
 class HabitDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer 
@@ -52,3 +41,14 @@ class HabitDetailView(generics.RetrieveUpdateDestroyAPIView):
         
     def porform_update(self, serializer):
         serializer.save(user=self.request.user)
+
+
+# class HabitDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    # queryset = Habit.objects.filter()
+    # serializer_class = HabitSerializer
+    
+    # def delete(self,request, *args, **kwargs):
+    #     return self.destroy(request, *args, **kwargs)
+    
+    
+    
